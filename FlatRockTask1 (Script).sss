@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script overwrite-on-import="true"><script-text>// Imports java.util package and implements class Hashtable.
+import java.util.Hashtable;
+
+// Imports com.screenscraper.xml package and implements class XMl.Writeter.
+import com.screenscraper.xml.XmlWriter;
+
+
+
+// Creates an object of class Hashtable.
+Hashtable attributes = new Hashtable();
+
+// Maps "attrib1" to "1" in the Hashtable.
+attributes.put("attrib1", "1");
+
+// Maps "child2" to "2" in the Hashtable.
+attributes.put("attrib2", "2");
+
+// Maps "attrib3" to "3" in the Hashtable.
+attributes.put("attrib3", "3");
+
+
+
+// Creates an object of class Hashtable
+Hashtable children = new Hashtable();
+
+// Maps key "child1" to value "1" in the Hashtable.
+children.put("child1", "1");
+
+// Maps key "child2" to value "2" in the Hashtable.
+children.put("child2", "2");
+
+// Maps key "child3" to value "3" in the Hashtable.
+children.put("child3", "3");
+
+// Maps key "child4" to value "4" in the Hashtable.
+children.put("child4", "4");
+
+// Maps key "child5" to value "5" in the Hashtable.
+children.put("child5", "5");
+
+
+
+// Instantiate a writer with a root node named "difficult-root". 
+XmlWriter xmlWriter = new XmlWriter("./difficult.xml", "difficult-root");
+
+// Adds hashtable to attributes.  Appends to root element.
+firstElement = xmlWriter.addElement("first child", "first child text",attributes);
+  
+// Add more info to the first element.
+secondElement = xmlWriter.addElements(firstElement, "second child", "second child text", children);
+ 
+// Add more elements to root.  This time add text, attributes, and children.
+thirdElement = xmlWriter.addElements("third child", "third child text",attributes, children);
+
+// Illegal Example: Cannot add elements to the second Element
+// since it was closed when thirdElement was added to the root.
+// fourth = xmlWriter.addElement(secondElement, "wrong");
+
+// Adds hashtable to attributes.  Appends to root element.
+fifth = xmlWriter.addElement("another", "test", attributes );
+
+// Adds hashtable to children elements, appends to the fifth element.
+sixth = xmlWriter.addElements(fifth, "other", "test2", children );
+
+// Adds hashtable to attributes with children.  Appends to root element.
+eighth = xmlWriter.addElements("eight", "ocho", attributes, children );
+
+// Close up the XML file.
+xmlWriter.close();</script-text><name>FlatRockTask1</name><language>Interpreted Java</language><date_exported>February 17, 2019 16:11:35</date_exported></script>

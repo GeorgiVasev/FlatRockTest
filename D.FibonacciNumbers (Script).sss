@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script overwrite-on-import="true"><script-text>import java.util.Hashtable;
+import com.screenscraper.xml.XmlWriter;
+
+
+Hashtable attributes = new Hashtable();
+attributes.put("attrib1", "1");
+attributes.put("attrib2", "2");
+attributes.put("attrib3", "3");
+
+
+Hashtable children = new Hashtable();
+
+int n1 = 0;
+int n2 = 1;
+int n3;
+int count = 2;
+
+for (int i = 10; i &gt; count; i--) {
+         n3 = n1 + n2;
+         children.put("child"+n3,""+n3);
+         n1 = n2;
+         n2 = n3;
+}
+
+
+XmlWriter xmlWriter = new XmlWriter("./difficult.xml", "difficult-root");
+
+firstElement = xmlWriter.addElement("first child", "first child text", attributes);
+  
+secondElement = xmlWriter.addElements(firstElement, "second child", "second child text", children);
+
+thirdElement = xmlWriter.addElements("third child", "third child text", attributes, children);
+
+fifth = xmlWriter.addElement("another", "test", attributes );
+
+sixth = xmlWriter.addElements(fifth, "other", "test2", children );
+
+eighth = xmlWriter.addElements("eight", "ocho", attributes, children );
+
+xmlWriter.close();</script-text><name>Task2FibonnaciNumbers</name><language>Interpreted Java</language><date_exported>February 18, 2019 09:33:21</date_exported></script>

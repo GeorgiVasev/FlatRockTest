@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script overwrite-on-import="true"><script-text>import java.util.Hashtable;
+import com.screenscraper.xml.XmlWriter;
+
+
+Hashtable attributes = new Hashtable();
+attributes.put("attrib1", "1");
+attributes.put("attrib2", "2");
+attributes.put("attrib3", "3");
+
+
+Hashtable children = new Hashtable();
+
+for(int i =  40; i &gt; 1 ; i--) {
+    int counter = 0;
+    for (int num = i; num &gt;= 1; num--) {
+        if (i % num == 0) {
+            counter += 1;
+                }
+            }
+            if (counter == 2) {
+                children.put("child"+i,""+i);
+            }
+}
+
+
+XmlWriter xmlWriter = new XmlWriter("./difficult.xml", "difficult-root");
+
+firstElement = xmlWriter.addElement("first child", "first child text", attributes);
+  
+secondElement = xmlWriter.addElements(firstElement, "second child", "second child text", children);
+
+thirdElement = xmlWriter.addElements("third child", "third child text", attributes, children);
+
+fifth = xmlWriter.addElement("another", "test", attributes );
+
+sixth = xmlWriter.addElements(fifth, "other", "test2", children );
+
+eighth = xmlWriter.addElements("eight", "ocho", attributes, children );
+
+xmlWriter.close();</script-text><name>Task2PrimeNumbers</name><language>Interpreted Java</language><date_exported>February 17, 2019 23:00:49</date_exported></script>
